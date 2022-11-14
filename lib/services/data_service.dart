@@ -4,7 +4,7 @@ import 'package:flutter_bloc_and_cubit/model/album.dart';
 import 'package:flutter_bloc_and_cubit/model/comment.dart';
 import 'package:flutter_bloc_and_cubit/model/photo.dart';
 import 'package:flutter_bloc_and_cubit/model/post.dart';
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 
 class DataService {
   final _baseUrl = "jsonplaceholder.typicode.com";
@@ -12,7 +12,7 @@ class DataService {
   Future<List<Album>> getAlbums() async {
     try {
       final uri = Uri.https(_baseUrl, "/albums");
-      final response = await http.get(uri);
+      final response = await get(uri);
 
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body) as List;
@@ -29,7 +29,7 @@ class DataService {
   Future<List<Comment>> getComments() async {
     try {
       final uri = Uri.https(_baseUrl, "/comments");
-      final response = await http.get(uri);
+      final response = await get(uri);
 
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body) as List;
@@ -46,7 +46,7 @@ class DataService {
   Future<List<Photo>> getPhotos() async {
     try {
       final uri = Uri.https(_baseUrl, "/photos");
-      final response = await http.get(uri);
+      final response = await get(uri);
 
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body) as List;
@@ -63,7 +63,7 @@ class DataService {
   Future<List<Post>> getPosts() async {
     try {
       final uri = Uri.https(_baseUrl, "/posts");
-      final response = await http.get(uri);
+      final response = await get(uri);
 
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body) as List;

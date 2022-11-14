@@ -4,7 +4,7 @@ class Post {
   final String title;
   final String body;
 
-  Post({
+  const Post({
     required this.userId,
     required this.id,
     required this.title,
@@ -23,4 +23,14 @@ class Post {
       body: body,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['userId'] = userId;
+    map['id'] = id;
+    map['title'] = title;
+    map['body'] = body;
+    return map;
+  }
+
 }
